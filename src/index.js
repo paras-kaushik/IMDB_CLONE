@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 
 import App from './components/App';
-import movies from './reducers';
+import rootReducer from './reducers';
 import { data as moviesList } from './data';
 import './index.css';
 
-const store = createStore(movies);
+const store = createStore(rootReducer);
 // console.log(store);
 console.log('state', store.getState());
 

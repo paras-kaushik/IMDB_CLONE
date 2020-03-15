@@ -5,13 +5,14 @@ import {
   REMOVE_FROM_FAVOURITES,
   ADD_MOVIE_TO_LIST
 } from '../actions';
+import { combineReducers } from 'redux';
 
 const initialMoviesState = {
   list: [],
   favourites: [],
   showFavourites: false
 };
-export default function movies(state = initialMoviesState, action) {
+export function movies(state = initialMoviesState, action) {
   // // fetch movies and save in store, for now we are getting it from a file
   // // later we will get it from an API
   // if (action.type === ADD_MOVIES) {
@@ -58,3 +59,27 @@ export default function movies(state = initialMoviesState, action) {
       return state;
   }
 }
+
+export function search(state = [], action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
+// const initialRootState = {
+//   movies: initialMoviesState,
+//   search: []
+// };
+
+// export default function rootReducer(state = initialRootState, action) {
+//   return {
+//     movies: movies(state.movies, action),
+//     search: search(state.search, action)
+//   };
+// }
+
+export default combineReducers({
+  movies,
+  search
+});
