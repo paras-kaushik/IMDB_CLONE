@@ -56,6 +56,9 @@ class App extends React.Component {
                 isFavourite={this.isMovieInFavourites(movie)}
               />
             ))}
+            {displayMovies.length === 0 ? (
+              <div className="no-movies">No movies to display! </div>
+            ) : null}
           </div>
         </div>
       </div>
