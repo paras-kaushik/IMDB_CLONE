@@ -3,7 +3,8 @@ import {
   ADD_TO_FAVOURITES,
   SET_SHOW_FAVOURITES,
   REMOVE_FROM_FAVOURITES,
-  ADD_MOVIE_TO_LIST
+  ADD_MOVIE_TO_LIST,
+  ADD_SEARCH_RESULT
 } from '../actions';
 import { combineReducers } from 'redux';
 
@@ -60,8 +61,24 @@ export function movies(state = initialMoviesState, action) {
   }
 }
 
-export function search(state = [], action) {
+const initialSearchState = {
+  results: {},
+  showSearchResults: false
+};
+
+export function search(state = initialSearchState, action) {
   switch (action.type) {
+    case ADD_SEARCH_RESULT:
+      return {
+        ...state,
+        results: action.movie,
+        showSearchResults: true
+      };
+    case ADD_MOVIE_TO_LIST:
+      return {
+        ...state,
+        showSearchResults: false
+      };
     default:
       return state;
   }
