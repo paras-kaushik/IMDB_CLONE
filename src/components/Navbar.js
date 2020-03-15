@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addMovieToList } from '../actions';
 import { data } from '../data';
 
 class Navbar extends Component {
@@ -8,8 +9,11 @@ class Navbar extends Component {
       showSearchResults: true
     };
   }
-  handleAddToMovies = () => {
-    // mini assignment
+  handleAddToMovies = movie => {
+    this.props.dispatch(addMovieToList(movie));
+    this.setState({
+      showSearchResults: false
+    });
   };
 
   handleSearch = () => {
@@ -32,7 +36,7 @@ class Navbar extends Component {
                 <img src={data[0].Poster} alt="search-pic" />
                 <div className="movie-info">
                   <span>{data[0].Title}</span>
-                  <button onClick={this.handleAddToMovies}>
+                  <button onClick={() => this.handleAddToMovies(data[0])}>
                     Add to Movies
                   </button>
                 </div>
