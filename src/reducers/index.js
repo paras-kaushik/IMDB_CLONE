@@ -1,8 +1,9 @@
-import { ADD_MOVIES, ADD_TO_FAVOURITES } from '../actions';
+import { ADD_MOVIES, ADD_TO_FAVOURITES, SET_SHOW_FAVOURITES } from '../actions';
 
 const initialMoviesState = {
   list: [],
-  favourites: []
+  favourites: [],
+  showFavourites: false
 };
 export default function movies(state = initialMoviesState, action) {
   // // fetch movies and save in store, for now we are getting it from a file
@@ -28,6 +29,11 @@ export default function movies(state = initialMoviesState, action) {
       return {
         ...state,
         favourites: [action.movie, ...state.favourites]
+      };
+    case SET_SHOW_FAVOURITES:
+      return {
+        ...state,
+        showFavourites: action.val
       };
     default:
       return state;
