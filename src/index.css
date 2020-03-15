@@ -18,23 +18,67 @@ body {
 }
 .search-container input {
   height: 43px;
-  width: 400px;
+  width: 600px;
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
   border: none;
   font-size: 16px;
-  padding: 0 5px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
+.search-container {
+  position: relative;
+}
+.search-results {
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e1e1e1;
+  top: 42px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 100;
+}
+.search-result .movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.search-result .movie-info button {
+  margin: 20px 10px;
+  background: #21ba45;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  padding: 9px 0;
+  border-radius: 4px;
+}
+.search-result {
+  display: flex;
+}
+.search-result img {
+  height: 150px;
+}
+.search-result > div span {
+  font-size: 20px;
+  padding: 10px;
+  font-weight: 600;
+}
+
 .search-container input:focus,
 .search-container button:focus,
-.footer button:focus {
+.footer button:focus,
+.search-result .movie-info button:focus {
   outline: none;
 }
 .search-container button:hover,
-.footer button:hover {
+.footer button:hover,
+.search-result .movie-info button:hover {
   cursor: pointer;
 }
-.search-container button {
+#search-btn {
   background: #f2711c;
   height: 43px;
   color: #fff;
