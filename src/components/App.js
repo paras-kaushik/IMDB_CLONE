@@ -1,15 +1,13 @@
 import React from 'react';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
+import { addMovies } from '../actions';
 import { data as moviesList } from '../data';
 
 class App extends React.Component {
   componentDidMount() {
     this.props.store.subscribe(() => this.forceUpdate());
-    this.props.store.dispatch({
-      type: 'ADD_MOVIES',
-      movies: moviesList
-    });
+    this.props.store.dispatch(addMovies(moviesList));
   }
 
   render() {

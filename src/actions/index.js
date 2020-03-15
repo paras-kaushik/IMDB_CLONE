@@ -1,7 +1,10 @@
-// {
-//   type: 'FAVOURITE_MOVIE' // <-- action type
-// }
+// action types
+export const ADD_MOVIES = 'ADD_MOVIES';
 
-// {
-//   type: 'UNFAVOURITE_MOVIE'
-// }
+// action creators
+export function addMovies(movies) {
+  return {
+    type: ADD_MOVIES,
+    movies
+  };
+}
