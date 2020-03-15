@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { addMovieToList } from '../actions';
+import { addMovieToList, handleMovieSearch } from '../actions';
 import { data } from '../data';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSearchResults: true
+      showSearchResults: true,
+      searchText: ''
     };
   }
   handleAddToMovies = movie => {
@@ -16,8 +17,15 @@ class Navbar extends Component {
     });
   };
 
-  handleSearch = () => {
-    // next session
+  handleSearchClick = () => {
+    const { searchText } = this.state;
+    this.props.dispatch(handleMovieSearch(searchText));
+  };
+
+  handleSearchChange = e => {
+    this.setState({
+      searchText: e.target.value
+    });
   };
 
   render() {
@@ -25,8 +33,8 @@ class Navbar extends Component {
     return (
       <div className="nav">
         <div className="search-container">
-          <input />
-          <button id="search-btn" onClick={this.handleSearch}>
+          <input onChange={this.handleSearchChange} />
+          <button id="search-btn" onClick={this.handleSearchClick}>
             Search
           </button>
 
