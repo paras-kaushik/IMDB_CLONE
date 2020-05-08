@@ -10,44 +10,44 @@ export const ADD_SEARCH_RESULT = 'ADD_SEARCH_RESULT';
 export function addMovies(movies) {
   return {
     type: ADD_MOVIES,
-    movies
+    movies,
   };
 }
 
 export function addToFavourites(movie) {
   return {
     type: ADD_TO_FAVOURITES,
-    movie
+    movie,
   };
 }
 
 export function setShowFavourites(val) {
   return {
     type: SET_SHOW_FAVOURITES,
-    val
+    val,
   };
 }
 
 export function removeFromFavourites(movie) {
   return {
     type: REMOVE_FROM_FAVOURITES,
-    movie
+    movie,
   };
 }
 
 export function addMovieToList(movie) {
   return {
     type: ADD_MOVIE_TO_LIST,
-    movie
+    movie,
   };
 }
 
 export function handleMovieSearch(searchText) {
-  return function(dispatch) {
-    const url = 'http://www.omdbapi.com/?apikey=3ca5df7&t=superman';
+  return function (dispatch) {
+    const url = `http://www.omdbapi.com/?apikey=3ca5df7&t=${searchText}`;
     fetch(url)
-      .then(response => response.json())
-      .then(movie => {
+      .then((response) => response.json())
+      .then((movie) => {
         console.log('movie', movie);
         // dispatch action to save search results in store
         dispatch(addMovieSearchResult(movie));
@@ -58,6 +58,6 @@ export function handleMovieSearch(searchText) {
 export function addMovieSearchResult(movie) {
   return {
     type: ADD_SEARCH_RESULT,
-    movie
+    movie,
   };
 }

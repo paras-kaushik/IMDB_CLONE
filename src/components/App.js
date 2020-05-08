@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import MovieCard from './MovieCard';
 import { addMovies, setShowFavourites } from '../actions';
 import { data as moviesList } from '../data';
+import { StoreContext } from '../index';
 
 class App extends React.Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class App extends React.Component {
     this.props.store.dispatch(addMovies(moviesList));
   }
 
-  isMovieInFavourites = movie => {
+  isMovieInFavourites = (movie) => {
     const { movies } = this.props.store.getState();
 
     const index = movies.favourites.indexOf(movie);
@@ -21,7 +22,7 @@ class App extends React.Component {
     return false;
   };
 
-  changeTab = val => {
+  changeTab = (val) => {
     this.props.store.dispatch(setShowFavourites(val));
   };
   render() {
@@ -32,7 +33,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Navbar dispatch={this.props.store.dispatch} search={search} />
+        <Navbar search={search} />
         <div className="main">
           <div className="tabs">
             <div
@@ -50,7 +51,7 @@ class App extends React.Component {
           </div>
 
           <div id="list">
-            {displayMovies.map(movie => (
+            {displayMovies.map((movie) => (
               <MovieCard
                 movie={movie}
                 key={movie.imdbID}
@@ -68,4 +69,14 @@ class App extends React.Component {
   }
 }
 
-export default App;
+class AppWrapper extends React.Component {
+  render() {
+    return (
+      <StoreContext.Consumer>
+        {(store) => <App store={store} />}
+      </StoreContext.Consumer>
+    );
+  }
+}
+
+export default AppWrapper;
