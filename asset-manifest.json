@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/IMDB_CLONE/static/css/main.57fbc47d.chunk.css",
+    "main.js": "/IMDB_CLONE/static/js/main.92a22e3f.chunk.js",
+    "main.js.map": "/IMDB_CLONE/static/js/main.92a22e3f.chunk.js.map",
+    "runtime-main.js": "/IMDB_CLONE/static/js/runtime-main.b3a21169.js",
+    "runtime-main.js.map": "/IMDB_CLONE/static/js/runtime-main.b3a21169.js.map",
+    "static/js/2.0b1752df.chunk.js": "/IMDB_CLONE/static/js/2.0b1752df.chunk.js",
+    "static/js/2.0b1752df.chunk.js.map": "/IMDB_CLONE/static/js/2.0b1752df.chunk.js.map",
+    "index.html": "/IMDB_CLONE/index.html",
+    "precache-manifest.03010592daa5a4f707618f05f929766b.js": "/IMDB_CLONE/precache-manifest.03010592daa5a4f707618f05f929766b.js",
+    "service-worker.js": "/IMDB_CLONE/service-worker.js",
+    "static/css/main.57fbc47d.chunk.css.map": "/IMDB_CLONE/static/css/main.57fbc47d.chunk.css.map",
+    "static/js/2.0b1752df.chunk.js.LICENSE.txt": "/IMDB_CLONE/static/js/2.0b1752df.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b3a21169.js",
+    "static/js/2.0b1752df.chunk.js",
+    "static/css/main.57fbc47d.chunk.css",
+    "static/js/main.92a22e3f.chunk.js"
+  ]
+}
